@@ -1,0 +1,71 @@
+div {zoom: 1.2;}
+
+/* Custom player style */
+#section3 midi-player {
+    display: block;
+    width: inherit;
+    margin: 4px;
+  }
+  #section3 midi-player::part(control-panel) {
+    background: rgb(255, 255, 255);
+    border: 2px solid rgb(44, 44, 44);
+    border-radius: 10px 10px 0 0;
+    margin-bottom: -4;
+  }
+  #section3 midi-player::part(play-button) {
+    color: rgb(85, 85, 85);
+    border: 2px solid currentColor;
+    background-color: rgb(221, 221, 221);
+    border-radius: 20px;
+    transition: all 0.2s;
+    content: 'hello';
+  }
+  #section3 midi-player::part(play-button):hover {
+    color: rgb(85, 85, 85);
+    background-color: rgb(255, 255, 255);
+    border-radius: 10px;
+  }
+  #section3 midi-player::part(time) {
+    font-family: monospace;
+  }
+  
+  /* Custom visualizer style */
+  #section3 midi-visualizer .waterfall-visualizer {
+    background: rgb(255, 255, 255);
+    border: 2px solid rgb(44, 44, 44);
+    border-radius: 0 0 10px 10px;
+    border-top: none;
+    margin: 4px;
+    margin-top: 0;
+    margin-bottom: 10px;
+    overflow: auto;
+    opacity: 0.9;
+  }
+  #section3 midi-visualizer svg rect.note {
+    opacity: 0.6;
+    stroke-width: 2;
+  }
+  #section3 midi-visualizer svg rect.note[data-instrument="0"]{
+    fill: rgb(0, 234, 255);
+    stroke: rgb(11, 175, 255);
+  }
+  #section3 midi-visualizer svg rect.note[data-instrument="1"]{
+    fill: rgb(114, 255, 121);
+    stroke: rgb(12, 200, 22);
+  }
+  #section3 midi-visualizer svg rect.note[data-is-drum="true"]{
+    fill: #888;
+    stroke: #888;
+  }
+  #section3 midi-visualizer svg rect.note.active {
+    opacity: 0.9;
+    stroke: #000;
+  }
+  svg rect.note {
+    fill: rgb(calc(var(--midi-velocity) * 1.2 + 100), 30, calc(255 - var(--midi-velocity)));
+  }
+  svg rect.note.active {
+    stroke: black;
+    stroke-width: 1.5;
+    stroke-opacity: 0.5;
+  }
